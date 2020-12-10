@@ -9,13 +9,14 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "next": "^10.0.4-canary.2",
+    "next-compose-plugins": "^2.2.1",
+    "next-images": "^1.6.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start"
   },
   "eslintConfig": {
     "extends": [
