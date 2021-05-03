@@ -9,23 +9,30 @@ import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { default as MomentUtils } from '@date-io/moment';
 
 const App = () => {
+  const [isReady, setIsReady] = React.useState(false);
+  React.useEffect(() => {
+    setIsReady(true);
+  }, []);
+
   return (
-    <NextLayout>
-      <ReduxProvider store={store}>
-        <AntDesign componentSize="large">
-          <MuiPickersUtilsProvider utils={MomentUtils}>
-            <MaterialUITheme>
-              <Router>
-                <Switch>
-                  <Route path="/auth" component={AuthLayout} />
-                  <Route path="/" component={PrivateLayout} />
-                </Switch>
-              </Router>
-            </MaterialUITheme>
-          </MuiPickersUtilsProvider>
-        </AntDesign>
-      </ReduxProvider>
-    </NextLayout>
+    isReady && (
+      <NextLayout>
+        <ReduxProvider store={store}>
+          <AntDesign componentSize="large">
+            <MuiPickersUtilsProvider utils={MomentUtils}>
+              <MaterialUITheme>
+                <Router>
+                  <Switch>
+                    <Route path="/auth" component={AuthLayout} />
+                    <Route path="/" component={PrivateLayout} />
+                  </Switch>
+                </Router>
+              </MaterialUITheme>
+            </MuiPickersUtilsProvider>
+          </AntDesign>
+        </ReduxProvider>
+      </NextLayout>
+    )
   );
 };
 
