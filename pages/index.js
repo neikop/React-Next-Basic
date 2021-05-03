@@ -1,7 +1,5 @@
 import App from 'App';
 
-const HomePage = () => {
+export default function Page() {
   return <App />;
-};
-
-export default HomePage;
+}

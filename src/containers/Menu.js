@@ -1,14 +1,12 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { t } from "utils/common";
-import { privateRoute } from "routes";
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { t } from 'utils/common';
+import { privateRoute } from 'routes';
 
-import DashboardOutlinedIcon from "@material-ui/icons/DashboardOutlined";
-import WorkOutlineOutlinedIcon from "@material-ui/icons/WorkOutlineOutlined";
-import AssignmentIndOutlinedIcon from "@material-ui/icons/AssignmentIndOutlined";
-import GroupOutlinedIcon from "@material-ui/icons/GroupOutlined";
+import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
+import WorkOutlineOutlinedIcon from '@material-ui/icons/WorkOutlineOutlined';
 
 const MenuItem = ({ name, icon, path }) => {
   const classes = useStyles();
@@ -23,23 +21,21 @@ const MenuItem = ({ name, icon, path }) => {
 };
 
 const Menu = () => {
-  const { home, jobList, candidateList, userList } = privateRoute;
+  const { home, market } = privateRoute;
   return (
     <>
-      <MenuItem {...home} name={t("Home")} icon={<DashboardOutlinedIcon />} />
-      {/* <MenuItem {...jobList} name={t("Job")} icon={<WorkOutlineOutlinedIcon />} />
-      <MenuItem {...candidateList} name={t("Candidate")} icon={<AssignmentIndOutlinedIcon />} />
-      <MenuItem {...userList} name={t("User")} icon={<GroupOutlinedIcon />} /> */}
+      <MenuItem {...home} name={t('Home')} icon={<DashboardOutlinedIcon />} />
+      <MenuItem {...market} name={t('Market')} icon={<WorkOutlineOutlinedIcon />} />
     </>
   );
 };
 
 const useStyles = makeStyles((theme) => ({
   item: {
-    width: "unset",
+    width: 'unset',
   },
   icon: {
-    minWidth: "unset",
+    minWidth: 'unset',
     marginRight: theme.spacing(1),
   },
 }));
