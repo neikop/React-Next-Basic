@@ -1,0 +1,27 @@
+.App {
+  min-height: 100vh;
+  background-color: aliceblue;
+}
+
+.Auth-Layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.App-Header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 2;
+  padding: 0px 24px;
+}
+
+.App-Body {
+  padding: 24px;
+}

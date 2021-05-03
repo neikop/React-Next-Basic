@@ -1,17 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-import moment from 'moment';
+import React from 'react';
+import { Provider as ReduxProvider } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { NextLayout, AuthLayout, PrivateLayout } from 'layouts';
+import { AppTheme as MaterialUITheme } from 'containers';
+import { store } from 'reducers';
+import { ConfigProvider as AntDesign } from 'antd';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import { default as MomentUtils } from '@date-io/moment';
 
-function App() {
-  const x = 1;
-
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <NextLayout>
+      <ReduxProvider store={store}>
+        <AntDesign componentSize="large">
+          <MuiPickersUtilsProvider utils={MomentUtils}>
+            <MaterialUITheme>
+              <Router>
+                <Switch>
+                  <Route path="/auth" component={AuthLayout} />
+                  <Route path="/" component={PrivateLayout} />
+                </Switch>
+              </Router>
+            </MaterialUITheme>
+          </MuiPickersUtilsProvider>
+        </AntDesign>
+      </ReduxProvider>
+    </NextLayout>
   );
-}
+};
 
 export default App;
